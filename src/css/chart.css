@@ -1,0 +1,19 @@
+#chartdiv {
+    width: 100%;
+    height: 70vh;
+}
+#piechartdiv {
+    width: 100%;
+    height: 80vh;
+}
+#wordclouddiv {
+    width: 100%;
+    height: 80vh;
+}
+.hidden {
+    display:none;
+}
+
+.show {
+    display:block;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="src/css/chart.css">
+    <title>Title</title>
+</head>
+<body>
+<div id="fileupload_block" class="show">
+    <h3>Choose the local(s) zip file(s)</h3>
+    <p class="note">Note : your browser will process the zip file, don't choose a file too big !</p>
+    <input type="file" id="file" name="file"/><br/>
+</div>
+
+<div id="result_block" class="hidden">
+    <h3>Content :</h3>
+    <div id="wordclouddiv"></div>
+    <div id="chartdiv"></div>
+    <div id="piechartdiv"></div>
+</div>
+<script src="dist/bundle.js"></script>
+</body>
+</html>
