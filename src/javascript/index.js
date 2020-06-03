@@ -9,13 +9,20 @@ $("#file").on("change", async function(evt) {
   // be sure to show the results
   const files = evt.target.files;
   try {
+    $("#fileupload_block").removeClass("show").addClass("hidden");
+    $("#loader").removeClass("hidden").addClass("show");
     const text = await handleFile(files[0]);
     const analyzedChat = analyzeChat(text);
     createWordCloud(analyzedChat.wordCloudText);
     createBarChart(analyzedChat.topEmojiCount);
     createPieChart(analyzedChat.usersCount);
-    $("#result_block").removeClass("hidden").addClass("show");
+    setTimeout(()=>{
+      $("#loader").removeClass("show").addClass("hidden");
+      $("#result_block").removeClass("hidden").addClass("show");
+    },100);
   } catch (e) {
+    $("#loader").removeClass("show").addClass("hidden");
+    $("#error").removeClass("hidden").addClass("show");
     console.log(e);
   }
 });

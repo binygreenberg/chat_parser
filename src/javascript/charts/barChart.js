@@ -41,7 +41,7 @@ export function createChart(data) {
 // Add bullets
   var labelBullet = series.bullets.push(new am4charts.LabelBullet());
   labelBullet.label.text = "{categoryX}";
-  labelBullet.label.fontSize = 30;
+  labelBullet.label.fontSize = 40;
   labelBullet.filters.push(new am4core.DropShadowFilter())
 
   chart.data = data

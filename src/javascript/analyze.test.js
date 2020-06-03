@@ -53,14 +53,15 @@ const expected = {
 describe('Test analyzeChat', function() {
   let chatText = ''
   before(async () => {
-      console.log(__dirname);
-      const f = fs.readFileSync(__dirname + "../../chat.zip");
+      // const f = fs.readFileSync(__dirname + "../../chat.zip");
+      const f = fs.readFileSync("/Users/binyamingreenberg/Downloads/whatsappima.zip");
       const zip = await JSZip.loadAsync(f);
       chatText = await zip.file("_chat.txt").async("text");
     }
   )
   it('should test analyzeChat', function() {
     const analyzedChat = analyzeChat(chatText);
+    console.log(analyzedChat);
     assert.deepStrictEqual(analyzedChat, expected);
   });
 });

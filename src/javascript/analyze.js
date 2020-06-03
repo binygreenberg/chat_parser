@@ -2,15 +2,16 @@ import emojiRegex from 'emoji-regex'
 import FlatQueue from "flatqueue";
 
 const myEmojiRegex = emojiRegex();
-const TOP_X_SIZE = 10;
-const chatLineRegex = new RegExp('\\[\\d\\d\\/\\d\\d\\/\\d\\d\\d\\d, \\d+:\\d\\d:\\d\\d\\] (.*?):(.*? omitted)?');
+const TOP_X_SIZE = 8;
+const chatLineRegex = new RegExp('\\[\\d+\\/\\d+\\/\\d\\d+, \\d+:\\d\\d:\\d\\d\\] (.*?):(.*? omitted)?');
 
 export function analyzeChat(text) {
   let emojiCount = {};
   let wordCloudText = '';
   let usersCount = {};
   const textArray = text.split('\n');
-  const title = chatLineRegex.exec(textArray[0])[1];
+  // const title = chatLineRegex.exec(textArray[0])[1];
+  const title = '10'
   textArray.slice(3).forEach(line => {
     wordCloudText = wordCount(line, wordCloudText);
     countEmoji(line, emojiCount);
