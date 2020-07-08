@@ -3,7 +3,9 @@ import $ from 'jquery';
 import {createChart as createBarChart} from './charts/barChart'
 import {createChart as createPieChart} from './charts/pieChart'
 import {createChart as createWordCloud} from './charts/wordCloud'
+import {createChart as createLineChart} from './charts/timelineChart'
 import {analyzeChat} from './analyze.js'
+import {getCorrectDateFormat} from "./analyze";
 
 $("#file").on("change", async function(evt) {
   // be sure to show the results
@@ -16,6 +18,7 @@ $("#file").on("change", async function(evt) {
     createWordCloud(analyzedChat.wordCloudText);
     createBarChart(analyzedChat.topEmojiCount);
     createPieChart(analyzedChat.usersCount);
+    createLineChart(analyzedChat.dateCount, getCorrectDateFormat(analyzedChat.dateCount[0].date));
     setTimeout(()=>{
       $("#loader").removeClass("show").addClass("hidden");
       $("#result_block").removeClass("hidden").addClass("show");

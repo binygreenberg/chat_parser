@@ -2,27 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="src/css/chart.css">
-    <link rel="stylesheet" href="src/css/loader2.css">
+    <!--    <link rel="stylesheet" href="src/css/chart.css">-->
+    <link rel="stylesheet" href="dist/styles-custom.css"/>
     <title>Title</title>
 </head>
 <body>
-<div id="fileupload_block" class="show">
-    <h3>Choose the local(s) zip file(s)</h3>
-    <p class="note">Note : your browser will process the zip file, don't choose a file too big !</p>
-    <input type="file" id="file" name="file"/><br/>
+
+<div class="header">
+    <!--    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">-->
+    <a class="pure-menu-heading" href="">Check This Chat</a>
+    <!--    </div>-->
 </div>
 
-<div class="loader hidden" id="loader">Loading...</div>
-<div class="hidden" id="error"> ERROR </div>
-<div id="result_block" class="hidden">
-    <h3></h3>
-    <div id="wordclouddiv"></div>
-    <h3></h3>
-    <div id="chartdiv"></div>
-    <h3></h3>
-    <div id="piechartdiv"></div>
+<div class="splash-container" id="fileupload_block" class="show">
+    <div class="splash">
+        <h1 class="splash-head">Big Bold Text</h1>
+        <p class="splash-subhead">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </p>
+        <p>
+        <div class="upload-btn-wrapper">
+            <button class="btn">Upload a file</button>
+            <input type="file" id="file" />
+        </div>
+        </p>
+    </div>
 </div>
+
+<!--<div id="fileupload_block" class="show">-->
+<!--    <h3>Choose the local(s) zip file(s)</h3>-->
+<!--    <p class="note">Note : your browser will process the zip file, don't choose a file too big !</p>-->
+<!--    <input type="file" id="file" name="file"/><br/>-->
+<!--</div>-->
+
+<div class="loader hidden" id="loader">Loading...</div>
+<div class="hidden" id="error"> ERROR</div>
+<div id="result_block" class="hidden">
+    <h2>Most Common Words</h2>
+    <div id="wordclouddiv"></div>
+    <h2>Most Common Emojis</h2>
+    <div id="chartdiv"></div>
+    <h2>Who sent the most messages?</h2>
+    <div id="piechartdiv"></div>
+    <h2>Timeline of Messages Sent</h2>
+    <div id="linechartdiv"></div>
+</div>
+
+<!--<div class="footer l-box is-center">-->
+<!--    View the source of this layout to learn more. Made with love by the Pure Team.-->
+<!--</div>-->
+
 <script src="dist/bundle.js"></script>
 </body>
 </html>
