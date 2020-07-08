@@ -17,6 +17,7 @@
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
     "flatqueue": "^1.2.1",
+    "mini-css-extract-plugin": "^0.9.0",
     "mocha": "^7.2.0",
     "tinyqueue": "^2.0.3",
     "webpack": "^4.43.0",
@@ -29,6 +30,7 @@
     "emoji-regex": "^9.0.0",
     "jquery": "^3.5.1",
     "jszip": "^3.4.0",
-    "spinkit": "^2.0.1"
+    "purecss": "^2.0.3",
+    "style-loader": "^1.2.1"
   }
 }

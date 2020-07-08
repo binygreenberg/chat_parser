@@ -1,0 +1,5 @@
+import 'purecss'
+import '../assets/css/chart.css'
+import '../assets/css/loader2.css'
+import '../assets/css/styles.css'
+import '../assets/css/file-upload.css'
