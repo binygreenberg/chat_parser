@@ -8,7 +8,7 @@ module.exports = {
   plugins: [new MiniCssExtractPlugin()],
   // Path to your entry point. From this file Webpack will begin his work
   entry: {
-    'bundle': './src/javascript/index.js', //specifying bundle with custom js files
+    'bundle': './src/index.js', //specifying bundle with custom js files
     'styles-custom': './src/styles-custom.js', //specifying bundle with custom css files
   },
   // Path and filename of your result bundle.
