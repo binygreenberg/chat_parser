@@ -34,12 +34,12 @@ $("#file").on("change", function(evt) {
   loadCharts(analyzedChatFunc).then(r => console.log(r));
 });
 
-
 async function loadCharts(analyzedChatFunc) {
   try {
     $("#fileupload_block").removeClass("show").addClass("hidden");
     $("#loader").removeClass("hidden").addClass("show");
-    const analyzedChat = await analyzedChatFunc()
+    const analyzedChat = await analyzedChatFunc();
+    window.globalChat = analyzedChat;
     am4core.options.queue = true;
     createWordCloud(analyzedChat.wordCount);
     createBarChart(analyzedChat.emojiCount);
@@ -56,9 +56,41 @@ async function loadCharts(analyzedChatFunc) {
   }
 }
 
+$("#shareButton").on("click", async function(evt) {
+  const uploadId = await uploadChat();
+  $("#shareLinkInput").val(`${window.location}chats/${uploadId}`)
+});
+
+$("#copyLinkButton").on("click", function(evt) {
+  /* Get the text field */
+  const inputElem = $("#shareLinkInput");
+  inputElem.select();
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  /* Alert the copied text */
+  alert("Copied the text: " + inputElem.val());
+});
+
+async function uploadChat (){
+  try {
+    const response = await fetch(`${CHATS_ENDPOINT}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(window.globalChat)
+    });
+    console.log(response.json().id())
+    return response.json().id()
+  } catch (e) {
+    throw e
+  }
+}
+
 // Closure to capture the file information.
 async function handleFile(f) {
-  debugger;
   const zip = await JSZip.loadAsync(f);
   const chatText = await zip.file("_chat.txt").async("text");
   return chatText;

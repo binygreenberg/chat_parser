@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "jest",
-    "build": "webpack --config webpack.prod.js",
-    "build-dev": "webpack --config webpack.dev.js"
+    "build": "webpack --config webpack.prod.cjs",
+    "build-dev": "webpack --config webpack.dev.cjs"
   },
   "author": "",
   "license": "ISC",
