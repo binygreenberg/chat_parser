@@ -8,14 +8,13 @@ import * as am4core from "@amcharts/amcharts4/core";
 import {analyzeChat} from './analyze.js'
 import {getCorrectDateFormat} from "./analyze";
 
-const CHATS_ENDPOINT = 'https://dwirm9cy83.execute-api.us-east-1.amazonaws.com/Staging/chats'
-
-const urlArr = window.location.href.split('/');
-if (urlArr[urlArr.length - 2] === 'chats') {
+const CHATS_ENDPOINT = 'https://dwirm9cy83.execute-api.us-east-1.amazonaws.com/Staging/chats';
+const searchParams = new URLSearchParams(window.location.search);
+if (searchParams.has('chat')) {
   const analyzedChatFunc = async () => {
     try {
-      const response = await fetch(`${CHATS_ENDPOINT}/${urlArr[urlArr.length - 1]}`);
-      return response.json()
+      const response = await fetch(`${CHATS_ENDPOINT}/${searchParams.get('chat')}`);
+      return response.json();
     } catch (e) {
       throw e
     }
